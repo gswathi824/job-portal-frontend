@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './UserHomePage.css';
+import {Outlet} from 'react-router-dom'
 
 const UserHomePage = () => {
   const [formData, setFormData] = useState({
@@ -101,6 +102,9 @@ const UserHomePage = () => {
             <p>No jobs available.</p>
           </div>
         )}
+      </div>
+      <div>
+        <Outlet/>
       </div>
     </>
   );

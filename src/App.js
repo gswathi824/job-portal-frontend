@@ -8,6 +8,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AdminHomePage from './components/AdminHomePAge';
 import UserHomePage from './components/UserHomePage';
 import JobDetails from './components/JobDetails';
+import ViewProfiles from './components/ViewProfiles';
+import UserProfile from './components/UserProfile';
 
 function App() {
   const routes=createBrowserRouter([
@@ -25,7 +27,10 @@ function App() {
     ]},
       
     {
-      path:"/user",element:<UserHomePage/>
+      path:"/user",element:<UserHomePage/>,children:[
+        {path:"view-profiles",element:<ViewProfiles/>},
+        {path:"create-profile",element:<UserProfile/>}
+      ]
     }
    
     
