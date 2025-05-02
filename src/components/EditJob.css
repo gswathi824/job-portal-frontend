@@ -1,0 +1,80 @@
+/* EditJob.css */
+
+.edit-job-container {
+    max-width: 80%;
+    margin: 2rem auto;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    color: #333;
+  }
+  
+  .edit-job-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .edit-job-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .edit-job-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+  
+  .edit-job-field {
+    flex: 1;
+    min-width: 220px;
+  }
+  
+  .edit-job-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .edit-job-input,
+  .edit-job-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border 0.3s, background-color 0.3s;
+  }
+  
+  .edit-job-input:focus,
+  .edit-job-textarea:focus {
+    border-color: #38a169;
+    background-color: #fff;
+  }
+  
+  .edit-job-submit {
+    text-align: center;
+  }
+  
+  .edit-job-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #38a169;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-job-button:hover {
+    background-color: #2f855a;
+  }
+  
