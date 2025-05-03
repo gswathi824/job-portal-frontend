@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './ViewProfiles.css';
 
-const ViewProfiles = () => {
+const JobProfiles = () => {
     const [profileList,setProfileList]=useState([]);
     const navigate=useNavigate();
+    const params=useParams();
     useEffect(()=>{
         const fetchProfiles=async()=>{
-            const res=await fetch("http://localhost:8080/user/view-profiles",{
+            let jobId=+params.id;
+            const res=await fetch(`http://localhost:8080/job/view-profiles/${jobId}`,{
                 method:"GET",
                 headers:{
                     "Content-type":"application/json"
@@ -47,13 +49,11 @@ const ViewProfiles = () => {
                 <p><strong>Location:</strong> {profile.location}</p>
                 <p><strong>Experience:</strong> {profile.experience} months</p>
                 <p><strong>Skills:</strong> {profile.skills}</p>
+                <p><strong style={{"color":"orange"}}>Status:Pending</strong></p>
               </div>
               <div className="profile-actions">
                 <button className="edit-btn">
                   <a href={`/user/edit-profile/${profile.profileId}`}>Edit</a>
-                </button>
-                <button className="delete-btn" onClick={()=>handleDeleteProfile(profile.profileId)}>
-                  Delete
                 </button>
               </div>
             </div>
@@ -66,4 +66,4 @@ const ViewProfiles = () => {
   );
 };
 
-export default ViewProfiles;
+export default JobProfiles;

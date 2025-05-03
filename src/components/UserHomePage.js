@@ -17,20 +17,26 @@ const UserHomePage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Implement API logic here
-    alert('Job search submitted');
+    const res=await fetch("http://localhost:8080/user/job-search/process",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(formData)
+    })
+     res.json().then((data)=>setJobList([...data])).catch((error)=>console.log(error));
   };
 
   return (
     <>
       <nav>
         <ul>
-          <li><a href="/user/job/apply">Apply Job</a></li>
+          <li><a href="/user/apply-job">Apply Job</a></li>
           <li><a href="/user/view-profiles">My Profiles</a></li>
           <li><a href="/user/create-profile">Create Profile</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="/user/logout">Logout</a></li>
         </ul>
       </nav>
 
@@ -91,7 +97,7 @@ const UserHomePage = () => {
                   <td>{job.experience}</td>
                   <td>{job.positions}</td>
                   <td>
-                    <button><a href={`/user/job-apply/${job.jobId}`}>Apply</a></button>
+                    <button><a href={`/user/apply-job/${job.jobId}`}>Apply</a></button>
                   </td>
                 </tr>
               ))}

@@ -17,11 +17,11 @@ export default function ViewJob() {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this job?")) {
       await fetch(`http://localhost:8080/job/${id}`, { method: "DELETE" });
-      navigate("/admin-home");
+      navigate("/admin/home");
     }
   };
 
-  const handleEdit = () => navigate(`/edit-job/${id}`);
+  const handleEdit = () => navigate(`/admin/edit-job/${id}`);
 
   if (!job) return <div className="view-container">Loading...</div>;
 

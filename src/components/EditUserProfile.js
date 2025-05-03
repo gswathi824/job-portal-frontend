@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {useParams} from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import {useParams,useNavigate} from 'react-router-dom'
 import './EditUserProfile.css';
 
 const EditUserProfile = () => {
@@ -18,6 +18,7 @@ const EditUserProfile = () => {
         location: ''
     });
    const params=useParams();
+   const navigate=useNavigate();
    let profileId=+params.id;
    useEffect(()=>{
     const fetchProfileDetails=async()=>{
@@ -27,11 +28,10 @@ const EditUserProfile = () => {
                 "Content-Type":"application/json"
             }
         });
-        console.log(res.json());
+        
         res.json().then((data)=>{
-            setProfileDetails(()=>{
-                return {...data}
-            });
+            console.log(data)
+            setProfileDetails({...data});
         })
     }
     fetchProfileDetails()
@@ -46,9 +46,17 @@ const EditUserProfile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-       
+       const res=await fetch("http://localhost:8080/user/edit-profile-process",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(profileDetails)
+       })
         
-        console.log(profileDetails);
+        console.log(res.json());
+        navigate("/user/view-profiles")
+
     };
 
     return (

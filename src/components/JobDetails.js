@@ -40,6 +40,7 @@ export default function JobDetails(){
     
       const handleView = (id) => navigate(`/admin/view-job/${id}`);
       const handleEdit = (id) => navigate(`/admin/edit-job/${id}`);
+      const handleViewProfiles=(id)=>navigate(`/admin/job/view-profiles/${id}`);
     
       return (
         <div className="admin-container">
@@ -61,6 +62,7 @@ export default function JobDetails(){
                     <button className="btn view" onClick={() => handleView(job.jobId)}>View</button>
                     <button className="btn edit" onClick={() => handleEdit(job.jobId)}>Edit</button>
                     <button className="btn delete" onClick={() => handleDelete(job.jobId)}>Delete</button>
+                    <button className="btn view" onClick={() => handleViewProfiles(job.jobId)}>View Profiles</button>
                   </div>
                 </div>
               ))}

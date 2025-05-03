@@ -10,6 +10,9 @@ import UserHomePage from './components/UserHomePage';
 import JobDetails from './components/JobDetails';
 import ViewProfiles from './components/ViewProfiles';
 import UserProfile from './components/UserProfile';
+import JobApplication from './components/JobApplication';
+import EditUserProfile from './components/EditUserProfile';
+import JobProfiles from './components/JobProfiles';
 
 function App() {
   const routes=createBrowserRouter([
@@ -23,13 +26,18 @@ function App() {
       },
         {
           path:"admin/view-job/:id",element:<ViewJob/>
+        },
+        {
+          path:"admin/job/view-profiles/:id",element:<JobProfiles/>
         }
     ]},
       
     {
       path:"/user",element:<UserHomePage/>,children:[
         {path:"view-profiles",element:<ViewProfiles/>},
-        {path:"create-profile",element:<UserProfile/>}
+        {path:"create-profile",element:<UserProfile/>},
+        {path:"edit-profile/:id",element:<EditUserProfile/>},
+        {path:"apply-job/:id",element:<JobApplication/>}
       ]
     }
    
