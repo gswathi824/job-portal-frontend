@@ -13,6 +13,7 @@ import UserProfile from './components/UserProfile';
 import JobApplication from './components/JobApplication';
 import EditUserProfile from './components/EditUserProfile';
 import JobProfiles from './components/JobProfiles';
+import JobSearchForm from './components/JobSearchForm';
 
 function App() {
   const routes=createBrowserRouter([
@@ -37,6 +38,7 @@ function App() {
         {path:"view-profiles",element:<ViewProfiles/>},
         {path:"create-profile",element:<UserProfile/>},
         {path:"edit-profile/:id",element:<EditUserProfile/>},
+        {path:"job-search-form",element:<JobSearchForm/>},
         {path:"apply-job/:id",element:<JobApplication/>}
       ]
     }
